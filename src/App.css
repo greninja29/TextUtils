@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+/* .navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo{
+  margin-left: 50px;
+  color: red;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.navbar ul{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 50px;
+}
+.navbar ul li{
+  margin-right: 30px;
+} */
+/* .text_button{
+  background-color: blue;
+} */
