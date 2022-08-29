@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-
-//is char a keyword in javascript
-
 export default function TextForm(props) {
   let handleupclick = () => {
     console.log("button is clicked");
@@ -103,7 +100,7 @@ export default function TextForm(props) {
   const [text, settext] = useState("");
   return (
     <>
-      <div className="container">
+      <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -112,6 +109,7 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             onChange={handlechange}
+            style={{backgroundColor:props.mode==='dark'?'#142640':'white',color:props.mode==='dark'?'white':'black'}}
           ></textarea>
         </div>
         <button className="btn btn-primary mx-2 my-1" onClick={handleupclick}>
@@ -136,7 +134,7 @@ export default function TextForm(props) {
           Clear Text
         </button>
       </div>
-      <div className="container my-3">
+      <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>Your text summary</h2>
         <p>
           There are {text.length} number of characters, and{" "}
