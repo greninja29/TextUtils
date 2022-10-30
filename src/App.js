@@ -1,11 +1,15 @@
-
 import { useState } from "react";
 import "./App.css";
 import Abouttext from "./components/Abouttext";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-//  let name = "mahendra";
+import {
+  HashRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+
 function App(){
   const[mode ,setmode]=useState('light')
   const[alert,setalert]=useState(null)
@@ -32,22 +36,24 @@ function App(){
       showalert("Light mode has been enabled","success")      
     }
   }
-  return (
-
-    <> 
+  return (  
+  <HashRouter>
     {/* passed as variable */}
     {/* <Navbar title={name} AboutText="About TextUtils"/> */}
     {/* even though we donot pass enough props, if we define default props it gets added to the component*/}
     {/* <Navbar /> */}
     {/* <Navbar title="TextUtils" /> */}
-   <Navbar title="TextUtils" AboutText="About TextUtils" mode={mode} togglemode={togglemode}/>
-   <Alert alert={alert}/>
-   <div className="container my-3">
-   <TextForm showalert={showalert} heading="Enter Your Text" mode={mode}/>
-   <Abouttext mode={mode}/>
-   </div>
- 
-    </> 
+      <Navbar title="TextUtils" AboutText="AboutTextUtils" mode={mode} togglemode={togglemode}/>
+      <Alert alert={alert}/>
+      {/* <TextForm showalert={showalert} heading="Enter Your Text" mode={mode}/> */}
+      <div className="container my-3">
+        <Routes>
+          <Route path='/' element={<TextForm showalert={showalert} heading="Enter Your Text" mode={mode}/>}/>
+          {/* <Route path='/TextUtils' element={<TextForm showalert={showalert} heading="Enter Your Text" mode={mode}/>}/> */}
+          <Route path='/abouttext' element={<Abouttext mode={mode}/>}/>
+        </Routes> 
+      </div>
+      </HashRouter> 
   );
 }
 export default App;

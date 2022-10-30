@@ -1,36 +1,12 @@
-import React,{useState} from "react";
-
-export default function About() {
-  const [mystyle,setMystyle]=useState({
-    color:'black',
-    backgroundColor:'white'
-  })
- let handleonclk=()=>{
-    if(mystyle.color ==='white'){
-      setMystyle({
-        color:'black',
-        backgroundColor:'white',
-        
-      })
-      setbtntxt("Enable Dark mood")
-    }
-    else{
-      setMystyle({
-        color: "white",
-        backgroundColor: "black",
-        border:'1px solid white'
-      })
-      setbtntxt("Enable Light mood")      
-    }
-  }
-  const [btntxt,setbtntxt]=useState("Enable Dark mood")  
-
+import React from "react";
+export default function About(props){
   return (
     <>
-      <div className="container" style={mystyle}>
+    <div className="container p-3 border border-dark rounded" style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}} > 
+    {/* <div className="container p-3 border border-dark rounded" style={mystyle} >  */}
         <h1 className="my-3">About Us</h1>
-        <div className="accordion" id="accordionExample">
-          <div className="accordion-item">
+        <div className="accordion " id="accordionExample">
+          <div className="accordion-item rounded" >
             <h2 className="accordion-header" id="headingOne">
               <button
                 className="accordion-button"
@@ -39,18 +15,18 @@ export default function About() {
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
-                style={mystyle}
+                style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}
               >
-                Accordion Item #1
+                Analyze Your text
               </button>
             </h2>
             <div
               id="collapseOne"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse show rounded"
               aria-labelledby="headingOne"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={mystyle}>
+              <div className="accordion-body" style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}>
                 <strong>This is the first item's accordion body.</strong> It is
                 shown by default, until the collapse plugin adds the appropriate
                 classes that we use to style each element. These classes control
@@ -63,7 +39,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item rounded" >
             <h2 className="accordion-header" id="headingTwo">
               <button
                 className="accordion-button collapsed"
@@ -72,18 +48,18 @@ export default function About() {
                 data-bs-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
-                style={mystyle}
+                style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}
               >
-                Accordion Item #2
+                Free to use 
               </button>
             </h2>
             <div
               id="collapseTwo"
-              className="accordion-collapse collapse"
+              className="accordion-collapse collapse rounded"
               aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={mystyle}>
+              <div className="accordion-body" style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}>
                 <strong>This is the second item's accordion body.</strong> It is
                 hidden by default, until the collapse plugin adds the
                 appropriate classes that we use to style each element. These
@@ -96,7 +72,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item rounded">
             <h2 className="accordion-header" id="headingThree">
               <button
                 className="accordion-button collapsed"
@@ -105,18 +81,18 @@ export default function About() {
                 data-bs-target="#collapseThree"
                 aria-expanded="false"
                 aria-controls="collapseThree"
-                style={mystyle}
+                style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}
               >
-                Accordion Item #3
+                Brower Compatible
               </button>
             </h2>
             <div
               id="collapseThree"
-              className="accordion-collapse collapse"
+              className="accordion-collapse collapse rounded"
               aria-labelledby="headingThree"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={mystyle}>
+              <div className="accordion-body" style={{color:props.mode==='light'?'black':'white',background:props.mode==='light'?'white':'black'}}>
                 <strong>This is the third item's accordion body.</strong> It is
                 hidden by default, until the collapse plugin adds the
                 appropriate classes that we use to style each element. These
@@ -131,11 +107,6 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="container my-3">
-          <button type="button" className="btn btn-primary" onClick={handleonclk} >
-            {btntxt}
-          </button>
-        </div>
     </>
   );
 }

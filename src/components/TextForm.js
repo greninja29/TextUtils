@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-export default function TextForm(props) {
-  let handleupclick = () => {
+export default function TextForm(props){
+  let handleupclick = ()=>{
     console.log("button is clicked");
     // let newtext=text.toUpperCase();
     // settext(newtext);
     let newone = "";
-    for (let i = 0; i < text.length; i++) {
+    for (let i = 0; i < text.length; i++){
       newone += String.fromCharCode(
         text.charCodeAt(i) > 96 && text.charCodeAt(i) < 123
           ? text.charCodeAt(i) - 32
@@ -108,7 +108,7 @@ export default function TextForm(props) {
     <>
       <div
         className="container"
-        style={{ color: props.mode === "dark" ? "white" : "black" }}
+        style={{color:props.mode === "dark" ? "white" : "black" }}
       >
         <h1>{props.heading}</h1>
         <div className="mb-3">
